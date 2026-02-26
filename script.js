@@ -148,7 +148,15 @@ function sortFeaturedAlpha(items){
   });
 }
 
-function getLang(){try{return localStorage.getItem('libia-lang')||'pt';}catch(e){return'pt';}}
+function getLang(){
+  try{
+    const saved=localStorage.getItem('libia-lang');
+    if(saved)return saved; // user already chose a language — respect it
+    // First visit: detect from browser/OS language
+    const nav=(navigator.language||navigator.userLanguage||'pt').toLowerCase();
+    return nav.startsWith('pt')?'pt':'en';
+  }catch(e){return'pt';}
+}
 function catLabel(cat){return getLang()==='en'?(CAT_I18N[cat]||cat):cat;}
 function subcatLabel(sub){return getLang()==='en'?(SUBCAT_I18N[sub]||sub):sub;}
 function catSlugFor(cat){return slug(cat);}
