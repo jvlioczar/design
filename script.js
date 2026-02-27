@@ -94,6 +94,7 @@ const SUBCAT_I18N={
   "Ilustradores Digitais":                             "Digital Illustrators",
   "Ilustradores Vetoriais":                            "Vector Illustrators",
   "Fotógrafos":                                        "Photographers",
+  "Fotomanipuladores":                                 "Photomanipulators",
   "Designers de Identidade Visual":                    "Branding Designers",
   "Designers Editoriais":                              "Editorial Designers",
   "Tipógrafos":                                        "Typographers",
@@ -148,7 +149,7 @@ const SUBCAT_ICON={
   "Infografia":"📊","Ilustração":"✏️","Motion e 3D":"🎞️","Tipografia":"🔤",
   "Tutoriais":"🎥","UX/UI":"🖥️","Exercícios de Design":"✍️",
   "Foundries (Tipografia)":"🔡","Animação":"🎞️",
-  "Artistas Tradicionais":"🖊️","Ilustradores Digitais":"🎨","Ilustradores Vetoriais":"✏️","Fotógrafos":"📷","Designers de Identidade Visual":"🏷️","Designers Editoriais":"📰","Tipógrafos":"🔤","Motion Designers":"🎞️","Designers de UX/UI":"🖥️","Designers de Produto":"📦","Designers de Informação":"📊","Designers de Embalagem":"🛍️","AI Designers":"🤖","Designers de Jogos":"🎮","YouTubers":"▶️",  // legado
+  "Artistas Tradicionais":"🖊️","Ilustradores Digitais":"🎨","Ilustradores Vetoriais":"✏️","Fotógrafos":"📷","Fotomanipuladores":"🪄","Designers de Identidade Visual":"🏷️","Designers Editoriais":"📰","Tipógrafos":"🔤","Motion Designers":"🎞️","Designers de UX/UI":"🖥️","Designers de Produto":"📦","Designers de Informação":"📊","Designers de Embalagem":"🛍️","AI Designers":"🤖","Designers de Jogos":"🎮","YouTubers":"▶️",  // legado
   "Branding e IV":"🏷️","Editorial":"📰","Motion":"🎞️","3D":"🧊",
   "Pessoas":"👤","Marcas":"🏷️","Audiovisual":"🎬","Premiações":"🏅",
   "Agenciadores de criativos":"🤝","Bibliotecas de Design":"📚","Advertising":"📣","Conceitos Gerais":"💡"
