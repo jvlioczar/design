@@ -19,7 +19,7 @@ function updateMenuToggleUi(){
 }
 
 function slug(s){return(s||'outros').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
-function groupBy(a,k){return a.reduce((acc,it)=>{const key=((it[k]||'Outros').trim()||'Outros');(acc[key]=acc[key]||[]).push(it);return acc;},{});}
+function groupBy(a,k){return a.reduce((acc,it)=>{const key=((it[k]||'Conceitos Gerais').trim()||'Conceitos Gerais');(acc[key]=acc[key]||[]).push(it);return acc;},{});}
 
 function parseCompanyItem(name){
   const pats=[/\s+—\s+/,/\s+-\s+/,/\s*:\s*/];
@@ -32,7 +32,7 @@ function parseCompanyItem(name){
 // ── Category translations ──────────────────────────────────────────────────
 const CAT_I18N={
   "Ferramentas":"Tools","Recursos Gratuitos":"Free Resources","Recursos Pagos":"Paid Resources",
-  "Conteúdo":"Content","Agências":"Agencies","Pessoas":"People",
+  "Blogs e Conteúdo":"Blogs & Content","Agências":"Agencies","Pessoas":"People",
   "Rankings e Listas de Design":"Design Rankings & Lists","Bibliotecas de Design":"Design Libraries","Termos":"Terms"
 };
 
@@ -90,10 +90,25 @@ const SUBCAT_I18N={
   "Foundries (Tipografia)":                            "Type Foundries",
   "Animação":                                          "Animation",
   // Pessoas
+  "Artistas Tradicionais":                             "Traditional Artists",
+  "Ilustradores Digitais":                             "Digital Illustrators",
+  "Ilustradores Vetoriais":                            "Vector Illustrators",
+  "Fotógrafos":                                        "Photographers",
+  "Designers de Identidade Visual":                    "Branding Designers",
+  "Designers Editoriais":                              "Editorial Designers",
+  "Tipógrafos":                                        "Typographers",
+  "Motion Designers":                                  "Motion Designers",
+  "Designers de UX/UI":                                "UX/UI Designers",
+  "Designers de Produto":                              "Product Designers",
+  "Designers de Informação":                           "Infodesigners",
+  "Designers de Embalagem":                            "Packaging Designers",
+  "AI Designers":                                      "AI Designers",
+  "Designers de Jogos":                                "Game Designers",
+  "YouTubers":                                         "YouTubers",
+  // legado
   "Branding e IV":                                     "Branding & Visual Identity",
   "Editorial":                                         "Editorial",
   "Motion":                                            "Motion",
-  "YouTubers":                                         "YouTubers",
   "3D":                                                "3D",
   // Rankings
   "Pessoas":                                           "People",
@@ -104,12 +119,14 @@ const SUBCAT_I18N={
   "Agenciadores de criativos":                         "Creative Talent Platforms",
   "Bibliotecas de Design":                             "Design Libraries",
   // Termos
-  "Advertising":                                       "Advertising"
+  "Advertising":                                       "Advertising",
+  // Termos
+  "Conceitos Gerais":                                  "General Concepts"
 };
 
 // ── Icons ──────────────────────────────────────────────────────────────────
 const CAT_ICON={
-  "Ferramentas":"🔧","Recursos Gratuitos":"🆓","Recursos Pagos":"💳","Conteúdo":"📖",
+  "Ferramentas":"🔧","Recursos Gratuitos":"🆓","Recursos Pagos":"💳","Blogs e Conteúdo":"📖",
   "Agências":"🏢","Pessoas":"👤","Rankings e Listas de Design":"🏆","Bibliotecas de Design":"📚","Termos":"🧩"
 };
 const SUBCAT_ICON={
@@ -131,9 +148,10 @@ const SUBCAT_ICON={
   "Infografia":"📊","Ilustração":"✏️","Motion e 3D":"🎞️","Tipografia":"🔤",
   "Tutoriais":"🎥","UX/UI":"🖥️","Exercícios de Design":"✍️",
   "Foundries (Tipografia)":"🔡","Animação":"🎞️",
-  "Branding e IV":"🏷️","Editorial":"📰","Motion":"🎞️","YouTubers":"▶️","3D":"🧊",
+  "Artistas Tradicionais":"🖊️","Ilustradores Digitais":"🎨","Ilustradores Vetoriais":"✏️","Fotógrafos":"📷","Designers de Identidade Visual":"🏷️","Designers Editoriais":"📰","Tipógrafos":"🔤","Motion Designers":"🎞️","Designers de UX/UI":"🖥️","Designers de Produto":"📦","Designers de Informação":"📊","Designers de Embalagem":"🛍️","AI Designers":"🤖","Designers de Jogos":"🎮","YouTubers":"▶️",  // legado
+  "Branding e IV":"🏷️","Editorial":"📰","Motion":"🎞️","3D":"🧊",
   "Pessoas":"👤","Marcas":"🏷️","Audiovisual":"🎬","Premiações":"🏅",
-  "Agenciadores de criativos":"🤝","Bibliotecas de Design":"📚","Advertising":"📣"
+  "Agenciadores de criativos":"🤝","Bibliotecas de Design":"📚","Advertising":"📣","Conceitos Gerais":"💡"
 };
 
 function catIcon(cat){return CAT_ICON[cat]||"📦";}
@@ -162,7 +180,7 @@ function subcatLabel(sub){return getLang()==='en'?(SUBCAT_I18N[sub]||sub):sub;}
 function catSlugFor(cat){return slug(cat);}
 function subcatSlugFor(cat,sub){return slug(cat)+'--'+slug(sub);}
 
-const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Conteúdo","Agências","Pessoas","Rankings e Listas de Design","Bibliotecas de Design","Termos"];
+const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Blogs e Conteúdo","Agências","Pessoas","Rankings e Listas de Design","Bibliotecas de Design","Termos"];
 function compareCats(a,b){
   // Order categories alphabetically by their localized label
   return catLabel(a).localeCompare(catLabel(b),undefined,{sensitivity:'base'});
