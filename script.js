@@ -33,7 +33,7 @@ function parseCompanyItem(name){
 const CAT_I18N={
   "Ferramentas":"Tools","Recursos Gratuitos":"Free Resources","Recursos Pagos":"Paid Resources",
   "Blogs e Conteúdo":"Blogs & Content","Agências":"Agencies","Pessoas":"People",
-  "Rankings e Listas de Design":"Design Rankings & Lists","Bibliotecas de Design":"Design Libraries","Termos":"Terms"
+  "Rankings e Listas":"Rankings & Lists","Bibliotecas":"Libraries","Termos":"Terms"
 };
 
 // ── Subcategory translations (EN) ──────────────────────────────────────────
@@ -118,7 +118,7 @@ const SUBCAT_I18N={
   "Premiações":                                        "Awards",
   // Bibliotecas
   "Agenciadores de criativos":                         "Creative Talent Platforms",
-  "Bibliotecas de Design":                             "Design Libraries",
+  "Bibliotecas":                                        "Libraries",
   // Termos
   "Advertising":                                       "Advertising",
   // Termos
@@ -128,7 +128,7 @@ const SUBCAT_I18N={
 // ── Icons ──────────────────────────────────────────────────────────────────
 const CAT_ICON={
   "Ferramentas":"🔧","Recursos Gratuitos":"🆓","Recursos Pagos":"💳","Blogs e Conteúdo":"📖",
-  "Agências":"🏢","Pessoas":"👤","Rankings e Listas de Design":"🏆","Bibliotecas de Design":"📚","Termos":"🧩"
+  "Agências":"🏢","Pessoas":"👤","Rankings e Listas":"🏆","Bibliotecas":"📚","Termos":"🧩"
 };
 const SUBCAT_ICON={
   "Redes Sociais / Portfolios":"🖼️","Editor online de design":"🎨","Editor online de mockups":"📱",
@@ -152,7 +152,7 @@ const SUBCAT_ICON={
   "Artistas Tradicionais":"🖊️","Ilustradores Digitais":"🎨","Ilustradores Vetoriais":"✏️","Fotógrafos":"📷","Fotomanipuladores":"🪄","Designers de Identidade Visual":"🏷️","Designers Editoriais":"📰","Tipógrafos":"🔤","Motion Designers":"🎞️","Designers de UX/UI":"🖥️","Designers de Produto":"📦","Designers de Informação":"📊","Designers de Embalagem":"🛍️","AI Designers":"🤖","Designers de Jogos":"🎮","YouTubers":"▶️",  // legado
   "Branding e IV":"🏷️","Editorial":"📰","Motion":"🎞️","3D":"🧊",
   "Pessoas":"👤","Marcas":"🏷️","Audiovisual":"🎬","Premiações":"🏅",
-  "Agenciadores de criativos":"🤝","Bibliotecas de Design":"📚","Advertising":"📣","Conceitos Gerais":"💡"
+  "Agenciadores de criativos":"🤝","Bibliotecas":"📚","Advertising":"📣","Conceitos Gerais":"💡"
 };
 
 function catIcon(cat){return CAT_ICON[cat]||"📦";}
@@ -181,7 +181,7 @@ function subcatLabel(sub){return getLang()==='en'?(SUBCAT_I18N[sub]||sub):sub;}
 function catSlugFor(cat){return slug(cat);}
 function subcatSlugFor(cat,sub){return slug(cat)+'--'+slug(sub);}
 
-const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Blogs e Conteúdo","Agências","Pessoas","Rankings e Listas de Design","Bibliotecas de Design","Termos"];
+const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Blogs e Conteúdo","Agências","Pessoas","Rankings e Listas","Bibliotecas","Termos"];
 function compareCats(a,b){
   // Order categories alphabetically by their localized label
   return catLabel(a).localeCompare(catLabel(b),undefined,{sensitivity:'base'});
