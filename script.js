@@ -32,7 +32,7 @@ function parseCompanyItem(name){
 // ── Category translations ──────────────────────────────────────────────────
 const CAT_I18N={
   "Ferramentas":"Tools","Recursos Gratuitos":"Free Resources","Recursos Pagos":"Paid Resources",
-  "Blogs e Conteúdo":"Blogs & Content","Agências":"Agencies","Pessoas":"People",
+  "Blogs e Conteúdo":"Blogs & Content","Estúdios e Agências":"Studios & Agencies","Pessoas":"People",
   "Rankings e Listas":"Rankings & Lists","Bibliotecas":"Libraries","Termos":"Terms"
 };
 
@@ -86,7 +86,7 @@ const SUBCAT_I18N={
   "Tutoriais":                                         "Tutorials",
   "UX/UI":                                             "UX/UI",
   "Exercícios de Design":                              "Design Exercises",
-  // Agências
+  // Estúdios e Agências
   "Foundries (Tipografia)":                            "Type Foundries",
   "Animação":                                          "Animation",
   // Pessoas
@@ -128,7 +128,7 @@ const SUBCAT_I18N={
 // ── Icons ──────────────────────────────────────────────────────────────────
 const CAT_ICON={
   "Ferramentas":"🔧","Recursos Gratuitos":"🆓","Recursos Pagos":"💳","Blogs e Conteúdo":"📖",
-  "Agências":"🏢","Pessoas":"👤","Rankings e Listas":"🏆","Bibliotecas":"📚","Termos":"🧩"
+  "Estúdios e Agências":"🏢","Pessoas":"👤","Rankings e Listas":"🏆","Bibliotecas":"📚","Termos":"🧩"
 };
 const SUBCAT_ICON={
   "Redes Sociais / Portfolios":"🖼️","Editor online de design":"🎨","Editor online de mockups":"📱",
@@ -181,7 +181,7 @@ function subcatLabel(sub){return getLang()==='en'?(SUBCAT_I18N[sub]||sub):sub;}
 function catSlugFor(cat){return slug(cat);}
 function subcatSlugFor(cat,sub){return slug(cat)+'--'+slug(sub);}
 
-const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Blogs e Conteúdo","Agências","Pessoas","Rankings e Listas","Bibliotecas","Termos"];
+const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Blogs e Conteúdo","Estúdios e Agências","Pessoas","Rankings e Listas","Bibliotecas","Termos"];
 function compareCats(a,b){
   // Order categories alphabetically by their localized label
   return catLabel(a).localeCompare(catLabel(b),undefined,{sensitivity:'base'});
