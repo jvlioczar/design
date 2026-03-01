@@ -499,6 +499,35 @@ select{
   height:14px;
   display:block;
 }
+.subcat-anchor {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  border-radius:7px;
+  border:1px solid var(--border);
+  background:var(--bg-soft);
+  color:var(--text);
+  box-shadow:-2px -2px 5px var(--shadow-hi),3px 3px 6px var(--shadow-lo);
+  transition:background .18s ease,color .18s ease,transform .15s ease,opacity .15s ease;
+  cursor:pointer;
+  opacity:0;
+  flex-shrink:0;
+}
+.subcat-h3:hover .subcat-anchor {
+  opacity:1;
+}
+.subcat-anchor:hover {
+  background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
+  color:#fff;
+  transform:translateY(-1px);
+}
+.subcat-anchor svg {
+  width:11px;
+  height:11px;
+  display:block;
+}
 
 
 

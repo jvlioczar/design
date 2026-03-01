@@ -324,7 +324,18 @@ function buildCategory(name,items){
     h3.addEventListener('click',doSubToggle);
     h3.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();doSubToggle();}});
     h3.setAttribute('aria-expanded','false');
-    h3.appendChild(subIco);h3.appendChild(subLbl);h3.appendChild(subBtn);
+    const subAnchor=document.createElement('a');subAnchor.className='subcat-anchor';subAnchor.href='#'+subcatSlugFor(name,sub);
+    subAnchor.setAttribute('aria-label',getLang()==='en'?'Copy link to subcategory':'Copiar link da subcategoria');
+    subAnchor.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.59 13.41a1 1 0 0 0 1.41 1.41l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06a1 1 0 1 0 1.41 1.41l1.06-1.06a1 1 0 1 1 1.41 1.41l-4.24 4.24Zm2.82-2.82a1 1 0 0 0-1.41-1.41L7.35 13.4a3 3 0 1 0 4.24 4.24l1.06-1.06a1 1 0 1 0-1.41-1.41l-1.06 1.06a1 1 0 0 1-1.41-1.41l4.24-4.24Z"/></svg>`;
+    subAnchor.addEventListener('click',async e=>{
+      e.preventDefault();e.stopPropagation();
+      const id=subcatSlugFor(name,sub);
+      if(history.replaceState)history.replaceState(null,'','#'+id);else location.hash=id;
+      if(subSec.classList.contains('is-collapsed')){subSec.classList.remove('is-collapsed');subBtn.textContent='−';h3.setAttribute('aria-expanded','true');}
+      smoothScrollToSubcat(id);
+      try{await navigator.clipboard.writeText(location.origin+location.pathname+'#'+id);showToast(getLang()==='en'?I18N.en.copied:I18N.pt.copied);}catch(err){}
+    });
+    h3.appendChild(subIco);h3.appendChild(subLbl);h3.appendChild(subAnchor);h3.appendChild(subBtn);
     subSec.appendChild(h3);
 
     const grid=document.createElement('div');grid.className='grid';
