@@ -61,8 +61,8 @@ const SUBCAT_I18N={
   "Bancos de fotografias":                             "Stock Photos",
   "Bancos de ilustrações":                             "Stock Illustrations",
   "Bancos de ícones":                                  "Stock Icons",
-  "Bancos de mockups":                                 "Free Mockups",
-  "Bancos de tipografias":                             "Free Fonts",
+  "Bancos de mockups":                                 "Stock Mockups",
+  "Bancos de tipografias":                             "Stock Fonts",
   "Conversores":                                       "File Converters",
   "Upscalers":                                         "Image Upscalers",
   // Recursos Pagos
