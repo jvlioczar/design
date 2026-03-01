@@ -19,6 +19,7 @@ function updateMenuToggleUi(){
 }
 
 function slug(s){return(s||'outros').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+function slugEn(s){return slug((s||'').replace(/&/g,'and'));}
 function groupBy(a,k){return a.reduce((acc,it)=>{const key=((it[k]||'Conceitos Gerais').trim()||'Conceitos Gerais');(acc[key]=acc[key]||[]).push(it);return acc;},{});}
 
 function parseCompanyItem(name){
@@ -178,8 +179,8 @@ function getLang(){
 }
 function catLabel(cat){return getLang()==='en'?(CAT_I18N[cat]||cat):cat;}
 function subcatLabel(sub){return getLang()==='en'?(SUBCAT_I18N[sub]||sub):sub;}
-function catSlugFor(cat){return slug(cat);}
-function subcatSlugFor(cat,sub){return slug(cat)+'--'+slug(sub);}
+function catSlugFor(cat){if(getLang()==='en'){return slugEn(CAT_I18N[cat]||cat);}return slug(cat);}
+function subcatSlugFor(cat,sub){if(getLang()==='en'){return slugEn(CAT_I18N[cat]||cat)+'--'+slugEn(SUBCAT_I18N[sub]||sub);}return slug(cat)+'--'+slug(sub);}
 
 const CAT_ORDER=["Ferramentas","Recursos Gratuitos","Recursos Pagos","Blogs e Conteúdo","Estúdios e Agências","Pessoas","Rankings e Listas","Bibliotecas","Termos"];
 function compareCats(a,b){
@@ -460,7 +461,7 @@ function scrollSidebarToId(idOrAll){
   // Which PT category key maps to this slug?
   function ptKeyForSlug(id){
     for(const k of Object.keys(CAT_ICON)){if(slugify(k)===id)return k;}
-    for(const k of Object.keys(CAT_I18N)){if(slugify(CAT_I18N[k])===id)return k;}
+    for(const k of Object.keys(CAT_I18N)){if(slugify((CAT_I18N[k]||'').replace(/&/g,'and'))===id)return k;}
     return null;
   }
 
@@ -475,7 +476,7 @@ function scrollSidebarToId(idOrAll){
       const itemCatId=catSlugFor(item.category);
       if(itemCatId!==catId)return;
       if(!item.subcategory||!item.subcategory.trim())return;
-      const subId=catId+'--'+slug(item.subcategory);
+      const subId=subcatSlugFor(item.category,item.subcategory);
       if(seenLabels.has(subId))return;
       seenLabels.add(subId);
       subs.push({id:subId,label:subcatLabel(item.subcategory)});
