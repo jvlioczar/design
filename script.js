@@ -61,8 +61,8 @@ const SUBCAT_I18N={
   "Bancos de fotografias":                             "Stock Photos",
   "Bancos de ilustrações":                             "Stock Illustrations",
   "Bancos de ícones":                                  "Stock Icons",
-  "Bancos de mockups":                                 "Free Mockups",
-  "Bancos de tipografias":                             "Free Fonts",
+  "Bancos de mockups":                                 "Stock Mockups",
+  "Bancos de tipografias":                             "Stock Fonts",
   "Conversores":                                       "File Converters",
   "Upscalers":                                         "Image Upscalers",
   // Recursos Pagos
@@ -320,6 +320,7 @@ function buildCategory(name,items){
       const collapsed=subSec.classList.toggle('is-collapsed');
       subBtn.textContent=collapsed?'+':'−';
       h3.setAttribute('aria-expanded',collapsed?'false':'true');
+      if(!collapsed){if(history.replaceState)history.replaceState(null,'','#'+subSec.id);else location.hash=subSec.id;}
     };
     h3.addEventListener('click',doSubToggle);
     h3.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();doSubToggle();}});
